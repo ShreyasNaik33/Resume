@@ -1,0 +1,455 @@
+/* GENERAL STYLES & TYPOGRAPHY */
+:root {
+    /* More vibrant, yet professional colors */
+    --primary-blue: #2a9d8f; /* Teal-ish blue */
+    --secondary-accent: #e9c46a; /* Earthy yellow/orange */
+    --tertiary-light: #f8fcfb; /* Very light background for contrast */
+    --text-dark: #264653; /* Darker blue-green for text */
+    --text-light: #526f7c; /* Medium blue-gray for secondary text */
+    --card-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--tertiary-light); /* Lighter overall background */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+a:hover {
+    color: #217d72; /* Slightly darker hover */
+}
+
+/* TOP ACCENT BAR */
+.top-accent-bar {
+    width: 100%;
+    max-width: 1200px;
+    height: 10px;
+    background: linear-gradient(90deg, var(--primary-blue) 0%, #2ec4b6 50%, var(--secondary-accent) 100%);
+    border-radius: 8px 8px 0 0;
+    margin-bottom: -8px; /* Overlap with container border-radius */
+    z-index: 1;
+}
+
+/* RESUME LAYOUT (TWO-COLUMN) */
+.resume-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+}
+
+.main-content {
+    flex: 3;
+    padding: 40px;
+    background-color: #ffffff;
+}
+
+.sidebar {
+    flex: 1.5;
+    background: linear-gradient(180deg, var(--tertiary-light), #f0f7f5); /* Subtle gradient for sidebar */
+    padding: 40px 25px;
+    color: var(--text-dark);
+    border-left: 1px solid #e0e0e0; /* A soft separator */
+}
+
+/* HEADER STYLING */
+.header h1 {
+    font-size: 2.8em; /* Larger name */
+    color: var(--text-dark); /* Keep name dark for readability */
+    margin-bottom: 5px;
+    font-weight: 900; /* Extra bold */
+    position: relative;
+    display: inline-block;
+}
+
+.header h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 80%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--primary-blue) 0%, #2ec4b6 100%); /* Gradient underline */
+    border-radius: 3px;
+    opacity: 0.8;
+}
+
+.header .role {
+    font-size: 1.15em;
+    color: var(--text-light);
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+/* SECTION STYLING */
+.section {
+    margin-bottom: 35px;
+}
+
+.section-title {
+    font-size: 1.6em;
+    padding-bottom: 8px;
+    margin-bottom: 25px;
+    color: var(--text-dark);
+    font-weight: 700;
+    position: relative;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px; /* Shorter, more modern line */
+    height: 4px;
+    background-color: var(--secondary-accent); /* Accent color line */
+    border-radius: 2px;
+}
+
+.section-title i {
+    color: var(--primary-blue);
+    margin-right: 12px;
+    font-size: 1.1em;
+}
+
+.separator {
+    border: none;
+    height: 2px;
+    background-color: #e8eef1;
+    margin: 30px 0;
+    border-radius: 1px;
+}
+
+/* EDUCATION STYLING */
+.education-item {
+    margin-bottom: 18px;
+    background-color: #fcfdff; /* Very light background for items */
+    padding: 10px 15px;
+    border-left: 4px solid var(--secondary-accent);
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease;
+}
+
+.education-item:hover {
+    transform: translateX(5px);
+}
+
+.education-item h3 {
+    font-size: 1.2em;
+    color: var(--text-dark);
+    margin-bottom: 3px;
+    font-weight: 700;
+}
+
+.education-item .duration {
+    font-style: italic;
+    color: var(--text-light);
+    font-size: 0.95em;
+}
+
+.education-item .details {
+    margin-top: 5px;
+    color: var(--text-dark);
+}
+
+/* PROJECTS CARD STYLING */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background: #fff;
+    border: 1px solid #e0e9ed;
+    padding: 25px;
+    border-radius: 10px; /* Slightly more rounded */
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+    background-color: #fefefe; /* Very slight background change on hover */
+}
+
+.project-icon {
+    font-size: 1.8em;
+    color: var(--secondary-accent); /* Use accent color for project icons */
+    margin-bottom: 15px;
+    padding: 8px;
+    background-color: #fff8eb; /* Light background for the icon */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.card-title {
+    font-size: 1.4em;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.card-tech {
+    font-size: 0.95em;
+    color: var(--primary-blue); /* Emphasize tech stack */
+    font-style: normal;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.project-card ul {
+    list-style: disc; /* Use discs for project details */
+    padding-left: 20px;
+    margin-top: 10px;
+    flex-grow: 1; /* Make list fill available space */
+}
+
+.project-card li {
+    margin-bottom: 8px;
+    font-size: 0.98em;
+    color: var(--text-light);
+}
+
+/* HACKATHONS STYLING */
+.hackathon-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.hackathon-list li {
+    background-color: #eaf9f6; /* Lighter blue-green */
+    padding: 10px 20px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    border-left: 5px solid var(--primary-blue);
+    font-size: 1em;
+    color: var(--text-dark);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.hackathon-list li:hover {
+    background-color: #e0f2ef;
+    border-color: #217d72;
+}
+
+/* SIDEBAR STYLING */
+.sidebar h3 {
+    font-size: 1.4em;
+    color: var(--text-dark); /* Sidebar titles darker */
+    margin-bottom: 18px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--secondary-accent); /* Accent for sidebar titles */
+    font-weight: 700;
+}
+
+.sidebar h3 i {
+    margin-right: 10px;
+    color: var(--primary-blue);
+}
+
+.sidebar-section {
+    margin-bottom: 35px;
+}
+
+/* Contact Info */
+.contact-info ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.contact-info li {
+    margin-bottom: 12px;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    color: var(--text-light);
+}
+
+.contact-info li i {
+    color: var(--primary-blue);
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+/* Skills */
+.skill-category {
+    margin-bottom: 22px;
+}
+
+.skill-category h4 {
+    font-size: 1.15em;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    font-weight: 600;
+    border-bottom: 1px dotted #a8dadc; /* Soft dotted line */
+    padding-bottom: 5px;
+}
+
+.skill-category h4 i {
+    color: var(--secondary-accent);
+    margin-right: 8px;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-left: 0;
+}
+
+.skill-list li {
+    background-color: #e0f2f0; /* Soft green-blue for skills */
+    color: var(--primary-blue);
+    padding: 6px 14px;
+    border-radius: 25px; /* More pill-shaped */
+    font-size: 0.9em;
+    margin: 6px 10px 6px 0;
+    font-weight: 500;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: background-color 0.2s ease;
+}
+
+.skill-list li:hover {
+    background-color: #cce7e4;
+}
+
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 900px) {
+    body {
+        padding: 10px;
+    }
+
+    .top-accent-bar {
+        margin-bottom: 0;
+        border-radius: 0;
+    }
+
+    .resume-container {
+        flex-direction: column;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .main-content, .sidebar {
+        flex: auto;
+        padding: 25px;
+    }
+
+    .sidebar {
+        background: linear-gradient(180deg, #f0f7f5, var(--tertiary-light));
+        border-top: 5px solid var(--primary-blue);
+        border-left: none;
+        order: -1;
+    }
+
+    .header h1 {
+        font-size: 2.2em;
+    }
+    
+    .header h1::after {
+        width: 60%;
+    }
+
+    .header .role {
+        font-size: 1em;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 1.4em;
+    }
+
+    .section-title::before {
+        width: 40px;
+    }
+}
+.objective p {
+    font-size: 1.05em;
+    color: var(--text-dark);
+    line-height: 1.8;
+    background-color: #f7fcfd;
+    padding: 15px;
+    border-left: 5px solid var(--secondary-accent);
+    border-radius: 4px;
+    font-style: italic;
+}
+
+/* ... (Existing Education and Project Styles) ... */
+
+/* HACKATHONS STYLING */
+/* ... (Existing Hackathon styles) ... */
+
+/* SIDEBAR STYLING */
+/* ... (Existing sidebar h3 and contact-info styles) ... */
+
+/* CERTIFICATES STYLING (NEW) */
+.certificate-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.certificate-list li {
+    background-color: #ffffff; /* White background */
+    border: 1px solid #dbeae7;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+    font-size: 0.95em;
+    transition: background-color 0.2s ease;
+}
+
+.certificate-list li::before {
+    content: "✓";
+    color: var(--primary-blue);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.certificate-list li:hover {
+    background-color: #eaf9f6;
+}
