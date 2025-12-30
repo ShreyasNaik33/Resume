@@ -1,1 +1,1 @@
-Resume - Full Stack Development Project
+Resume 
